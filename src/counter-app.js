@@ -29,10 +29,10 @@ export class counterApp extends DDDSuper(LitElement) {
     css`
       :host {
         display: block;
-        color: var(--ddd-theme-primary);
-        background-color: var(--ddd-theme-accent);
+        color: var(--ddd-theme-default-potentialMidnight);
+        background-color: var(--ddd-theme-default-limestoneLight);
         font-family: var(--ddd-font-navigation);
-        font-size: var(--counter-app-font-size, var(--ddd-font-size-s));
+        font-size: var(--counter-app-font-size, var(--ddd-font-size-l));
       }
       .btm-wrapper {
         display: flex; 
@@ -49,20 +49,20 @@ export class counterApp extends DDDSuper(LitElement) {
         
       }
       :host([counter="18"]) .counter {
-        color: var(--ddd-theme-default-landgrantBrown); 
+        color: var(--ddd-theme-default-athertonViolet); 
       }
       :host([counter="21"]) .counter {
         color: var(--ddd-theme-default-skyBlue); 
       }
       :host([counter="0"]) .counter {
-        color: var(--ddd-theme-default-roarGolden); 
+        color: var(--ddd-theme-default-discoveryCoral); 
       }
       :host([counter="30"]) .counter {
-        color: var(--ddd-theme-default-original87Pink); 
+        color: var(--ddd-theme-default-opportunityGreen); 
       }
       button {
         font-size: var(--ddd-font-size-s); 
-        background-color: var(--ddd-theme-default-skyLight);
+        background-color: var(--ddd-theme-default-potential0);
         padding: var(--ddd-spacing-2); 
         
       }
