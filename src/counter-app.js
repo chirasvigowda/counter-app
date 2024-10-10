@@ -34,36 +34,43 @@ export class counterApp extends DDDSuper(LitElement) {
         font-family: var(--ddd-font-navigation);
         font-size: var(--counter-app-font-size, var(--ddd-font-size-s));
       }
+      .btm-wrapper {
+        display: flex; 
+        justify-content: center; 
+      }
       .wrapper {
-        margin: var(--ddd-spacing-2);
-        padding: var(--ddd-spacing-4);
+        margin: var(--ddd-spacing-4);
+        padding: var(--ddd-spacing-8);
         text-align: center; 
       }
+    
       .counter{
-        font-size: var(--ddd-font-size-s)
+        font-size: var(--ddd-font-size-l)
+        
       }
       :host([counter="18"]) .counter {
-        color: var(--ddd-theme-default-#f03fc4); 
+        color: var(--ddd-theme-default-landgrantBrown); 
       }
       :host([counter="21"]) .counter {
-        color: var(--ddd-theme-default-#1ed1e9); 
+        color: var(--ddd-theme-default-skyBlue); 
       }
       :host([counter="0"]) .counter {
-        color: var(--ddd-theme-default-#007f20); 
+        color: var(--ddd-theme-default-roarGolden); 
       }
       :host([counter="30"]) .counter {
-        color: var(--ddd-theme-default-#e37611); 
+        color: var(--ddd-theme-default-original87Pink); 
       }
       button {
         font-size: var(--ddd-font-size-s); 
-        background-color: var(--ddd-theme-default-#e5cb6d);
-        padding: var(--ddd-spacing-3); 
+        background-color: var(--ddd-theme-default-skyLight);
+        padding: var(--ddd-spacing-2); 
+        
       }
       button:hover {
-        background-color: var(--ddd-theme-default-#725c5c);
+        background-color: var(--ddd-theme-default-limestoneGray);
       }
       button:disabled {
-        background-color: var(--ddd-theme-default-#747474);
+        background-color: var(--ddd-theme-default-potential0);
       }
     `];
   }
@@ -96,13 +103,16 @@ export class counterApp extends DDDSuper(LitElement) {
 
   render() {
     return html`
-      <div class="wrapper">
+      <confetti-container id="confetti" class="wrapper">
         <div>${this.title}</div>
         <div class = "counter">${this.counter}</div>
-        <button @click = "${this.decrement}" ?disabled = "${this.counter === this.maxNumber}">-</button>
-        <button @click = "${this.increment}" ?disabled = "${this.counter === this.minNumber}">+</button>
-        <confetti-container id="confetti"></confetti-container>
+        <div class="btm-wrapper"> 
+          <button @click="${this.decrement}" ?disabled ="${this.counter === this.minNumber}">-</button>
+          <button @click="${this.increment}" ?disabled = "${this.counter === this.maxNumber}">+</button>
+        </div>
+
         <slot></slot>
+    </confetti-container>
       </div>`;
   }
 static get haxProperties() {
